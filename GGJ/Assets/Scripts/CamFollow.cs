@@ -8,6 +8,11 @@ public class CamFollow : MonoBehaviour
 
     private void Update()
     {
+        camFollow();
+    }
+
+    void camFollow()
+    {
         transform.position = player.position + offset;
     }
 }
