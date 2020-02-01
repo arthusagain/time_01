@@ -33,7 +33,27 @@ public class GridTile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tipo == TileType.Seta)
+        {
+            if(Input.GetKey(KeyCode.UpArrow))
+            {
+                orientacao = Orientacao.S;
+            }
+            else if(Input.GetKey(KeyCode.DownArrow))
+            {
+                orientacao = Orientacao.N;
 
+            }
+            else if(Input.GetKey(KeyCode.LeftArrow))
+            {
+                orientacao = Orientacao.L;
+
+            }
+            else if(Input.GetKey(KeyCode.RightArrow))
+            {
+                orientacao = Orientacao.O;
+            }
+        }
     }
 
     public float getX()
