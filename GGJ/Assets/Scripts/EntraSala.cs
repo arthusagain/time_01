@@ -38,4 +38,9 @@ public class EntraSala : MonoBehaviour
             porta = true;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        porta = false;
+    }
 }
