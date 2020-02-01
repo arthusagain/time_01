@@ -103,49 +103,35 @@ public class RailMovement : MonoBehaviour
                     }
                     break;
                 case GridTile.TileType.Curva:
-                    switch (other.GetComponent<GridTile>().orientacao)
+                    if((int)GT.orientacao == (int)dir)
                     {
-                        case GridTile.Orientacao.N:
-                            break;
-                        case GridTile.Orientacao.S:
-                            break;
-                        case GridTile.Orientacao.L:
-                            break;
-                        case GridTile.Orientacao.O:
-                            break;
-                        default:
-                            Debug.Log($"Colisão de tile invalida em ({transform.position.x},{transform.position.y}");
-                            break;
+                        Rotate(90);
                     }
+                    else if(((int)GT.orientacao == 0  && (int)dir == 3) || (int)GT.orientacao-1 == (int)dir)
+                    {
+                        Rotate(270);
+                    }
+                    Debug.Log("Fim da curva");
                     break;
                 case GridTile.TileType.Seta:
-                    switch (other.GetComponent<GridTile>().orientacao)
                     {
-                        case GridTile.Orientacao.N:
-                            break;
-                        case GridTile.Orientacao.S:
-                            break;
-                        case GridTile.Orientacao.L:
-                            break;
-                        case GridTile.Orientacao.O:
-                            break;
-                        default:
-                            Debug.Log($"Colisão de tile invalida em ({transform.position.x},{transform.position.y}");
-                            break;
+                        dir = (Direction)GT.orientacao;
                     }
                     break;
                 default:
                     Debug.Log($"Colisão com tile invalido em ({transform.position.x},{transform.position.y}");
-                    break;
-                    
-            }
+                    break;            }
         }
     }
     private void Rotate(int degrees)
     {
+        Debug.Log($"Rodando {degrees} graus");
+        Debug.Log($"Direção inicial {dir}");
         int temp = (((int)dir+(degrees/90))%4);
-        if (temp == 0) temp = 4;
+        //if (temp == 0) temp = 4;
         dir = (Direction)temp;
+
+        Debug.Log($"Direção final {dir}");
     }
     private void GameOver()
     {
