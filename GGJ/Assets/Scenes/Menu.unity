@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1439026812}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &885534653
@@ -823,8 +823,8 @@ GameObject:
   - component: {fileID: 1397415692}
   - component: {fileID: 1397415691}
   - component: {fileID: 1397415690}
-  - component: {fileID: 1397415693}
   - component: {fileID: 1397415694}
+  - component: {fileID: 1397415693}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -902,10 +902,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1397415689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 569ac58151cfa674a9c1697b0cb612ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d4e40a45e3df464b802c4043d47a4db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainScene: '"SampleScene"'
+  fadeOutUIImage: {fileID: 1766361783}
+  fadeSpeed: 0.8
 --- !u!114 &1397415694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,11 +916,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1397415689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8093a1255b17d0c4f888fe50a6b0c6d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 66695b9997063e24ca8ec39f6100e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutUIImage: {fileID: 1766361783}
-  fadeSpeed: 0.8
+  mainScene: SampleScene
 --- !u!1 &1439026812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1397415693}
+      - m_Target: {fileID: 0}
         m_MethodName: GameStart
         m_Mode: 1
         m_Arguments:
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1397415693}
+      - m_Target: {fileID: 0}
         m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
