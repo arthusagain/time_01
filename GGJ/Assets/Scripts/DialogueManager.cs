@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject chooseButton;
     public Text activeName;
     public Text dialogueText;
-    private string NomeFase;
+    static public string NomeFase;
     private string post_name;
     private string n_fala;
     private string s_fala;
@@ -50,6 +50,7 @@ public class DialogueManager : MonoBehaviour
         s_fala = dialogue.s_frase;
         n_fala = dialogue.n_frase;
         post_name = dialogue.post_name;
+        NomeFase = dialogue.MinigameScene;
 
         sentences.Clear();
 
@@ -79,8 +80,9 @@ public class DialogueManager : MonoBehaviour
 
     public void Accept()
     {
+        SceneManager.LoadScene(NomeFase, LoadSceneMode.Additive);
         activeName.text = post_name;
-        dialogueText.text = s_fala;
+        dialogueText.text = s_fala;       
     }
     public void DisplayNextSentence()
     {
