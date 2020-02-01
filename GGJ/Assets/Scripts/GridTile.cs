@@ -10,7 +10,8 @@ public class GridTile : MonoBehaviour
         Volta,
         Linha,
         Curva,
-        Seta
+        Seta,
+        Objetivo
     }
     public enum Orientacao
     {

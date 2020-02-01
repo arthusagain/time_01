@@ -118,8 +118,16 @@ public class RailMovement : MonoBehaviour
                         dir = (Direction)GT.orientacao;
                     }
                     break;
+                case GridTile.TileType.Objetivo:
+                    if (this.gameObject.CompareTag("Player"))
+                    {
+                        GameWin();
+                    }
+                    else Rotate(180);
+                    break;
                 default:
-                    Debug.Log($"Colisão com tile invalido em ({transform.position.x},{transform.position.y}");
+                    //parede
+                    GameOver();
                     break;            }
         }
     }
@@ -141,4 +149,8 @@ public class RailMovement : MonoBehaviour
         //pausar jogo, oferece botão para reiniciar cena.
     }
 
+    private void GameWin()
+    {
+        //venceu o jogo.
+    }
 }
