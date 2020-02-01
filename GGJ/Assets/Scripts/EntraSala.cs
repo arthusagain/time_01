@@ -5,11 +5,14 @@ using UnityEngine;
 public class EntraSala : MonoBehaviour
 {
     private bool porta;
+    public Vector2 doorPosition;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        porta = false;   
+        porta = false;
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class EntraSala : MonoBehaviour
 
     private void Entra()
     {
+        player.transform.position = doorPosition;
         Debug.Log("entrou");
     }
 
