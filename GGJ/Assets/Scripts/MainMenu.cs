@@ -30,6 +30,5 @@ public class MainMenu : MonoBehaviour
     public void GameStart()
     {
         StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, mainScene));
-        SceneManager.LoadScene(mainScene);
     }
 }

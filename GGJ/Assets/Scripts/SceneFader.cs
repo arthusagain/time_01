@@ -18,7 +18,7 @@ public class SceneFader : MonoBehaviour
         Out // Alpha = 0
     }
 
-    //J: inicia o processo de esmaecimento quando habilitar o objeto
+    //J: esmaece ao entrar na cena
     void OnEnable()
     {
         StartCoroutine(Fade(FadeDirection.Out));
@@ -43,25 +43,22 @@ public class SceneFader : MonoBehaviour
         else
         {
             //J: senão, reduz alpha até 0 gradualmente
-            Debug.Log("Fading in...");
             fadeOutUIImage.enabled = true;
             while (alpha <= fadeEndValue)
             {
                 SetColorImage(ref alpha, fadeDirection);
-                Debug.Log("fading...");
                 yield return null;
             }
-            Debug.Log("Fade in complete!");
         }
     }
 
-    //J: corrotina que efetua esmaecimento e depois 
+    //J: corrotina que efetua esmaecimento e depois muda cena
     public IEnumerator FadeAndLoadScene(FadeDirection fadeDirection, string sceneToLoad)
     {
 
         yield return Fade(fadeDirection);
         Debug.Log($"Loading scene '{sceneToLoad}'...");
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadScene(sceneToLoad,LoadSceneMode.Single);
     }
 
     //J: altera o alpha da imagem conforme a direção escolhida
