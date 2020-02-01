@@ -9,16 +9,21 @@ public class DialogueManager : MonoBehaviour
     public Text name;
     public Text dialogueText;
     private Queue<string> sentences;
+    private GameObject player;
+    private Move playermov;
 
     // Start is called before the first frame update
     void Start()
     {
         textBox.gameObject.SetActive(false);
         sentences = new Queue<string>();
+        player = GameObject.Find("Player");
+        playermov = player.GetComponent<Move>();
     }
     
     public void StartDialogue(Dialogue dialogue)
     {
+        playermov.falando = true;
         textBox.gameObject.SetActive(true);
         name.text = dialogue.npc;
 
@@ -45,8 +50,9 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
+        playermov.falando = false;
         textBox.gameObject.SetActive(false);
         Debug.Log("Fim");
     }

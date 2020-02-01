@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-
+    public bool falando = false;
     public float movSpeed = 5.0f;
     private Vector2 move;
     private Rigidbody2D rb;
@@ -23,11 +23,18 @@ public class Move : MonoBehaviour
 
     private void Movimento()
     {
-        float movHon = Input.GetAxis("Horizontal");
+        if(falando == false)
+        {
+            float movHon = Input.GetAxis("Horizontal");
 
-        Vector2 mov = new Vector2(movHon, 0);
+            Vector2 mov = new Vector2(movHon, 0);
 
-        rb.velocity = mov * movSpeed;
+            rb.velocity = mov * movSpeed;
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, 0) * movSpeed;
+        }
     }
 }
 
