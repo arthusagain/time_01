@@ -11,7 +11,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(falou)
         {
-            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            this.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         }
     }
     public void TriggerDialogue()
