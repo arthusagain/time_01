@@ -7,9 +7,13 @@ using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     public GameObject textBox;
+    public GameObject chooseButton;
     public Text activeName;
     public Text dialogueText;
     private string NomeFase;
+    private string post_name;
+    private string n_fala;
+    private string s_fala;
     private Queue<string> sentences;
     private Queue<string> names;
     private GameObject player;
@@ -19,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         textBox.gameObject.SetActive(false);
+        chooseButton.gameObject.SetActive(false);
         sentences = new Queue<string>();
         names = new Queue<string>();
         player = GameObject.Find("Player");
@@ -27,9 +32,13 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown("space") && playermov.falando == true)
+        if(Input.GetKeyDown("space") && playermov.falando == true )
         {
             DisplayNextSentence();
+        }
+        if(Input.GetKeyDown("space") && playermov.falando == true && (dialogueText.text == n_fala || dialogueText.text == s_fala))
+        {
+            EndDialogue();
         }
     }
 
@@ -38,6 +47,9 @@ public class DialogueManager : MonoBehaviour
         playermov.falando = true;
         textBox.gameObject.SetActive(true);
         NomeFase = dialogue.MinigameScene;
+        s_fala = dialogue.s_frase;
+        n_fala = dialogue.n_frase;
+        post_name = dialogue.post_name;
 
         sentences.Clear();
 
@@ -58,11 +70,24 @@ public class DialogueManager : MonoBehaviour
         }      
     }
 
+
+    public void Deny()
+    {
+        activeName.text = post_name;
+        dialogueText.text = n_fala;
+    }
+
+    public void Accept()
+    {
+        activeName.text = post_name;
+        dialogueText.text = s_fala;
+    }
     public void DisplayNextSentence()
     {
         if(sentences.Count == 0)
         {
-            EndDialogue();
+            chooseButton.gameObject.SetActive(true);
+            //EndDialogue();
             return;
         }
 
@@ -78,6 +103,7 @@ public class DialogueManager : MonoBehaviour
     {
         playermov.falando = false;
         textBox.gameObject.SetActive(false);
+        chooseButton.gameObject.SetActive(false);
         //funcao de fade pra proxima scene
     }
 }
