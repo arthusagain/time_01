@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     public GameObject textBox;
-    public Text name;
+    public Text activeName;
     public Text dialogueText;
     private string NomeFase;
     private Queue<string> sentences;
+    private Queue<string> names;
     private GameObject player;
     private Move playermov;
 
@@ -19,6 +20,7 @@ public class DialogueManager : MonoBehaviour
     {
         textBox.gameObject.SetActive(false);
         sentences = new Queue<string>();
+        names = new Queue<string>();
         player = GameObject.Find("Player");
         playermov = player.GetComponent<Move>();
     }
@@ -35,15 +37,18 @@ public class DialogueManager : MonoBehaviour
     {
         playermov.falando = true;
         textBox.gameObject.SetActive(true);
-        name.text = dialogue.npc;
         NomeFase = dialogue.MinigameScene;
 
         sentences.Clear();
 
         foreach(string sentence in dialogue.sentences)
         {
-            Debug.Log(sentence);
             sentences.Enqueue(sentence);
+        }
+
+        foreach(string name in dialogue.npc)
+        {
+            names.Enqueue(name);
         }
 
         if(dialogueText.text != dialogue.sentences[0])
@@ -61,6 +66,9 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
+        string name = names.Dequeue();
+
+        activeName.text = name;
         dialogueText.text = sentence; 
         
     }
