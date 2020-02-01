@@ -75,12 +75,12 @@ public class RailMovement : MonoBehaviour
         }
         else if (other.CompareTag("Rail"))
         {
-           
-            switch (other.GetComponent<GridTile>().tipo)
+            GridTile GT = other.GetComponent<GridTile>();
+            switch (GT.tipo)
             {
                 case GridTile.TileType.Volta:
 
-                    if ((int)other.GetComponent<GridTile>().orientacao == (int)dir)
+                    if ((int)GT.orientacao == (int)dir)
                     {
 
                         Debug.Log("Volta");
@@ -91,12 +91,15 @@ public class RailMovement : MonoBehaviour
                         GameOver();
                         Debug.Log("Morre");
                     }
-                        break;
+                    break;
                 case GridTile.TileType.Linha:
-                    if (!(other.GetComponent<GridTile>().orientacao.Equals(dir) ||
-                        (other.GetComponent<GridTile>().orientacao.GetHashCode() / 2 < 1.5) == (dir.GetHashCode() / 2 < 1.5)))
+                    if (((int)dir + 2)%4 == ((int)GT.orientacao)%4 )
                     {
-                        GameOver();
+                        GT.orientacao = (GridTile.Orientacao)dir;
+                    }
+                    else
+                    {
+                        dir = (Direction)GT.orientacao;
                     }
                     break;
                 case GridTile.TileType.Curva:
@@ -151,4 +154,5 @@ public class RailMovement : MonoBehaviour
         Debug.Log("Fim de jogo");
         //pausar jogo, oferece botão para reiniciar cena.
     }
+
 }
