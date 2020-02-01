@@ -402,7 +402,7 @@ MonoBehaviour:
     n_frase: "Tudo bem...voc\xEA deve precisar mais disso do que eu."
     s_frase: "Muito obrigada, n\xE3o sabe o quanto nos ajudou."
     post_name: "Gr\xE1vida"
-    MinigameScene: 
+    MinigameScene: Gravida
   falou: 0
 --- !u!50 &342465621
 Rigidbody2D:
@@ -1668,7 +1668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.099976, y: -4.7000732}
+  m_AnchoredPosition: {x: -34.099976, y: -4.699951}
   m_SizeDelta: {x: -95.59, y: -55.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435221457

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RailMovement : MonoBehaviour
 {
@@ -151,6 +152,9 @@ public class RailMovement : MonoBehaviour
 
     private void GameWin()
     {
+        GameManager.HP -= 25;
+        //DialogueTrigger.paciente.GetComponent<SpriteRenderer>().sprite = DialogueTrigger.;
+        SceneManager.UnloadSceneAsync(DialogueManager.NomeFase);
         //venceu o jogo.
     }
 }
