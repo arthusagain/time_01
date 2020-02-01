@@ -24,7 +24,6 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && falou == false)
         {
-            Debug.Log("oi");
             TriggerDialogue();
         }
     }

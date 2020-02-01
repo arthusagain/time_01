@@ -22,7 +22,15 @@ public class DialogueManager : MonoBehaviour
         player = GameObject.Find("Player");
         playermov = player.GetComponent<Move>();
     }
-    
+
+    private void Update()
+    {
+        if(Input.GetKeyDown("space") && playermov.falando == true)
+        {
+            DisplayNextSentence();
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
         playermov.falando = true;
@@ -34,10 +42,14 @@ public class DialogueManager : MonoBehaviour
 
         foreach(string sentence in dialogue.sentences)
         {
+            Debug.Log(sentence);
             sentences.Enqueue(sentence);
         }
 
-        DisplayNextSentence();
+        if(dialogueText.text != dialogue.sentences[0])
+        {
+            DisplayNextSentence();
+        }      
     }
 
     public void DisplayNextSentence()
