@@ -420,16 +420,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     npc:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - 'meu '
+    - 'caro '
+    - amigo
     sentences:
     - Fala meu bom
     - Ja morri nem tenta
@@ -1302,7 +1295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d40f43a6279e942acc065a1b7423b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 2091456232}
+  textBox: {fileID: 1641479704}
   activeName: {fileID: 2091456234}
   dialogueText: {fileID: 1435221457}
 --- !u!4 &1738527636
@@ -1467,7 +1460,7 @@ MonoBehaviour:
     - doto
     - paciente
     sentences:
-    - Oi
+    - "\xE7 \xE3 \xEA \xE9 \xE8"
     - o que foi
     - to doente
     - ok

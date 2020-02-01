@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
 
         foreach(string sentence in dialogue.sentences)
         {
+            Debug.Log(sentence);
             sentences.Enqueue(sentence);
         }
 
