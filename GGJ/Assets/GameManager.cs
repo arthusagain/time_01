@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Image HPBar;
-    static public float HP;
+    static public float HP = 100;
     private float HP_Total;
 
     // Start is called before the first frame update
