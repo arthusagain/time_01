@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
     public GameObject textBox;
     public Text name;
     public Text dialogueText;
+    private string NomeFase;
     private Queue<string> sentences;
     private GameObject player;
     private Move playermov;
@@ -26,6 +28,7 @@ public class DialogueManager : MonoBehaviour
         playermov.falando = true;
         textBox.gameObject.SetActive(true);
         name.text = dialogue.npc;
+        NomeFase = dialogue.MinigameScene;
 
         sentences.Clear();
 
@@ -54,6 +57,6 @@ public class DialogueManager : MonoBehaviour
     {
         playermov.falando = false;
         textBox.gameObject.SetActive(false);
-        Debug.Log("Fim");
+        //funcao de fade pra proxima scene
     }
 }
