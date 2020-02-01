@@ -29,6 +29,7 @@ public class MainMenu : MonoBehaviour
     //J: função que faz transição para cena do jogo
     public void GameStart()
     {
+        StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, mainScene));
         SceneManager.LoadScene(mainScene);
     }
 }
