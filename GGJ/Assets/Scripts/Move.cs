@@ -30,9 +30,10 @@ public class Move : MonoBehaviour
             Vector2 mov = new Vector2(movHon, 0);
 
             rb.velocity = mov * movSpeed;
+
         }
         else
-        {
+        {           
             rb.velocity = new Vector2(0, 0) * movSpeed;
         }
     }

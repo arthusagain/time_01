@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,9 +18,11 @@ public class DialogueManager : MonoBehaviour
     private string s_fala;
     private Queue<string> sentences;
     private Queue<string> names;
+    private Queue<AudioClip> barulhos;
     private GameObject player;
     private Move playermov;
     public AudioSource passaDialogo;
+    public AudioSource SomFala;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,7 @@ public class DialogueManager : MonoBehaviour
         names = new Queue<string>();
         player = GameObject.Find("Player");
         playermov = player.GetComponent<Move>();
+        barulhos = new Queue<AudioClip>();
     }
 
     private void Update()
@@ -38,6 +42,7 @@ public class DialogueManager : MonoBehaviour
         if(Input.GetKeyDown("space") && playermov.falando == true )
         {
             passaDialogo.Play();
+            SomFala.Play();
             DisplayNextSentence();
         }
         if(Input.GetKeyDown("space") && playermov.falando == true && (dialogueText.text == n_fala || dialogueText.text == s_fala))
@@ -56,6 +61,7 @@ public class DialogueManager : MonoBehaviour
         post_name = dialogue.post_name;
         NomeFase = dialogue.MinigameScene;
         passaDialogo.Play();
+        SomFala.Play();
 
         sentences.Clear();
 
@@ -68,6 +74,11 @@ public class DialogueManager : MonoBehaviour
         foreach(string name in dialogue.npc)
         {
             names.Enqueue(name);
+        }
+
+        foreach(AudioClip som in dialogue.barulhos)
+        {
+            barulhos.Enqueue(som);
         }
 
         if(dialogueText.text != dialogue.sentences[0])
@@ -101,10 +112,11 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         string name = names.Dequeue();
+        AudioClip som = barulhos.Dequeue();
 
         activeName.text = name;
-        dialogueText.text = sentence; 
-        
+        dialogueText.text = sentence;
+        SomFala.clip = som;       
     }
 
     public void EndDialogue()

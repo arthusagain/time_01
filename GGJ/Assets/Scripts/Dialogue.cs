@@ -8,6 +8,7 @@ public class Dialogue
     public string[] npc;
     [TextArea(3,10)]
     public string[] sentences;
+    public AudioClip[] barulhos;
     public string n_frase;
     public string s_frase;
     public string post_name; 
