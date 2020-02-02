@@ -152,6 +152,8 @@ public class RailMovement : MonoBehaviour
         GameManager.HP -= 25;
         //DialogueTrigger.paciente.GetComponent<SpriteRenderer>().sprite = DialogueTrigger.;
         SceneManager.UnloadSceneAsync(DialogueManager.NomeFase);
+        DialogueManager.canvas.gameObject.SetActive(true);
+        DialogueTrigger.paciente.gameObject.SetActive(false);
         //venceu o jogo.
     }
 

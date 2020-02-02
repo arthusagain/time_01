@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
+    static public GameObject canvas;
     public GameObject textBox;
     public GameObject chooseButton;
     public Text activeName;
@@ -22,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canvas = GameObject.Find("Canvas");
         textBox.gameObject.SetActive(false);
         chooseButton.gameObject.SetActive(false);
         sentences = new Queue<string>();
@@ -81,6 +83,7 @@ public class DialogueManager : MonoBehaviour
     public void Accept()
     {
         SceneManager.LoadScene(NomeFase, LoadSceneMode.Additive);
+        canvas.gameObject.SetActive(false);
         activeName.text = post_name;
         dialogueText.text = s_fala;       
     }
