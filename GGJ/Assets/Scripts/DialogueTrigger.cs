@@ -8,7 +8,6 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public bool falou = false;
     static public GameObject paciente;
-    public Sprite curado;
 
     private void Start()
     {

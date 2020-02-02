@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
+    static public GameObject canvas;
     public GameObject textBox;
     public GameObject chooseButton;
     public Text activeName;
@@ -18,10 +19,12 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> names;
     private GameObject player;
     private Move playermov;
+    public AudioSource passaDialogo;
 
     // Start is called before the first frame update
     void Start()
     {
+        canvas = GameObject.Find("Canvas");
         textBox.gameObject.SetActive(false);
         chooseButton.gameObject.SetActive(false);
         sentences = new Queue<string>();
@@ -34,6 +37,7 @@ public class DialogueManager : MonoBehaviour
     {
         if(Input.GetKeyDown("space") && playermov.falando == true )
         {
+            passaDialogo.Play();
             DisplayNextSentence();
         }
         if(Input.GetKeyDown("space") && playermov.falando == true && (dialogueText.text == n_fala || dialogueText.text == s_fala))
@@ -51,6 +55,7 @@ public class DialogueManager : MonoBehaviour
         n_fala = dialogue.n_frase;
         post_name = dialogue.post_name;
         NomeFase = dialogue.MinigameScene;
+        passaDialogo.Play();
 
         sentences.Clear();
 
@@ -81,6 +86,7 @@ public class DialogueManager : MonoBehaviour
     public void Accept()
     {
         SceneManager.LoadScene(NomeFase, LoadSceneMode.Additive);
+        canvas.gameObject.SetActive(false);
         activeName.text = post_name;
         dialogueText.text = s_fala;       
     }
