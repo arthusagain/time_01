@@ -29,12 +29,30 @@ public class Move : MonoBehaviour
         {
             
             float movHon = Input.GetAxis("Horizontal");
+
+            if((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))&& movHon == 0)
+            {
+                Debug.Log("buggou.... tentando consertar");
+                if(Input.GetKey(KeyCode.RightArrow))
+                {
+                    Debug.Log("Positivo");
+                    movHon = 1;
+                }
+                else
+                {
+                    Debug.Log("Negativo");
+                    movHon = -1;
+                }
+            }
+
             
             Vector2 mov = new Vector2(movHon, 0);
 
             rb.velocity = mov * movSpeed;
 
-            if(movHon != 0 && passos.isPlaying == false)
+            Debug.Log($"velocity = ({rb.velocity.x},{rb.velocity.y})");
+
+            if (movHon != 0 && passos.isPlaying == false)
             {
                 passos.Play();
             }
