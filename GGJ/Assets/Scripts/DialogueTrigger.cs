@@ -8,6 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public bool falou = false;
     static public GameObject paciente;
+    //public DoctorDialogue docDialogue;
 
     private void Start()
     {
@@ -26,11 +27,21 @@ public class DialogueTrigger : MonoBehaviour
         falou = true;
     }
 
+    /*public void TriggerDialogueFinal()
+    {
+        FindObjectOfType<DialogueManager>().FinalDialogueStart(docDialogue);
+        falou = true;
+    }*/
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && falou == false)
+        if (collision.gameObject.CompareTag("Player")/* && falou == false && paciente.tag != "Finish"*/)
         {
             TriggerDialogue();
         }
+        /*else
+        {
+            TriggerDialogueFinal();
+        }*/
     }
 }

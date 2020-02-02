@@ -18,11 +18,10 @@ public class DialogueManager : MonoBehaviour
     private string s_fala;
     private Queue<string> sentences;
     private Queue<string> names;
-    private Queue<AudioClip> barulhos;
     private GameObject player;
+    public GameObject final;
     private Move playermov;
     public AudioSource passaDialogo;
-    public AudioSource SomFala;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +33,6 @@ public class DialogueManager : MonoBehaviour
         names = new Queue<string>();
         player = GameObject.Find("Player");
         playermov = player.GetComponent<Move>();
-        barulhos = new Queue<AudioClip>();
     }
 
     private void Update()
@@ -42,13 +40,16 @@ public class DialogueManager : MonoBehaviour
         if(Input.GetKeyDown("space") && playermov.falando == true )
         {
             passaDialogo.Play();
-            SomFala.Play();
             DisplayNextSentence();
         }
         if(Input.GetKeyDown("space") && playermov.falando == true && (dialogueText.text == n_fala || dialogueText.text == s_fala))
         {
             EndDialogue();
         }
+        /*if (Input.GetKeyDown("space") && playermov.falando == true && sentences == null && NomeFase == null)
+        {
+            EndDialogue();
+        }*/
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -59,9 +60,7 @@ public class DialogueManager : MonoBehaviour
         s_fala = dialogue.s_frase;
         n_fala = dialogue.n_frase;
         post_name = dialogue.post_name;
-        NomeFase = dialogue.MinigameScene;
         passaDialogo.Play();
-        SomFala.Play();
 
         sentences.Clear();
 
@@ -76,17 +75,46 @@ public class DialogueManager : MonoBehaviour
             names.Enqueue(name);
         }
 
-        foreach(AudioClip som in dialogue.barulhos)
-        {
-            barulhos.Enqueue(som);
-        }
-
         if(dialogueText.text != dialogue.sentences[0])
         {
             DisplayNextSentence();
         }      
     }
 
+    /*public void FinalDialogueStart(DoctorDialogue dialogue)
+    {
+        playermov.falando = true;
+        textBox.gameObject.SetActive(true);
+        passaDialogo.Play();
+
+
+        sentences.Clear();
+
+        foreach (string name in dialogue.npc)
+        {
+            names.Enqueue(name);
+        }
+
+        if (GameManager.HP == 0)
+        {
+            foreach (string good in dialogue.good_end)
+            {
+                sentences.Enqueue(good);
+            }
+        }
+        else
+        {
+            foreach (string bad in dialogue.bad_end)
+            {
+                sentences.Enqueue(bad);
+            }
+        }
+
+        if (dialogueText.text != dialogue.good_end[0] || dialogueText.text != dialogue.bad_end[0])
+        {
+            DisplayNextSentence();
+        }
+    }*/
 
     public void Deny()
     {
@@ -112,11 +140,9 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         string name = names.Dequeue();
-        AudioClip som = barulhos.Dequeue();
 
         activeName.text = name;
-        dialogueText.text = sentence;
-        SomFala.clip = som;       
+        dialogueText.text = sentence;  
     }
 
     public void EndDialogue()
