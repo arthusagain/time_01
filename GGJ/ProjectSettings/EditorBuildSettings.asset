@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Gravida.unity
+    path: Assets/Scenes/Adolescente TRUE.unity
     guid: 218db13b2628ddf48939359f12556958
   - enabled: 1
-    path: Assets/Scenes/Adolescente.unity
+    path: Assets/Scenes/Gravida.unity
     guid: 8f68da541a2adf848a8d516c632f8f62
   - enabled: 1
     path: Assets/Scenes/Chata.unity

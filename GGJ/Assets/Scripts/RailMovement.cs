@@ -39,25 +39,28 @@ public class RailMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position,rival.transform.position)<=minDist)
+        if (rival != null)
         {
-            GameOver();
+            if (Vector2.Distance(transform.position, rival.transform.position) <= minDist)
+            {
+                GameOver();
+            }
         }
-        else if (!over)
+        if (!over)
         {
             switch (dir)
             {
                 case Direction.N:
-                    transform.position = new Vector2(transform.position.x,transform.position.y + Time.deltaTime * speed);  
+                    transform.position = new Vector2(transform.position.x, transform.position.y + Time.deltaTime * speed);
                     break;
                 case Direction.S:
-                    transform.position = new Vector2(transform.position.x, transform.position.y - Time.deltaTime * speed);                  
+                    transform.position = new Vector2(transform.position.x, transform.position.y - Time.deltaTime * speed);
                     break;
                 case Direction.L:
-                    transform.position = new Vector2(transform.position.x + Time.deltaTime * speed,transform.position.y);                   
+                    transform.position = new Vector2(transform.position.x + Time.deltaTime * speed, transform.position.y);
                     break;
                 case Direction.O:
-                    transform.position = new Vector2(transform.position.x - Time.deltaTime * speed, transform.position.y);                   
+                    transform.position = new Vector2(transform.position.x - Time.deltaTime * speed, transform.position.y);
                     break;
                 default:
                     GameOver();
