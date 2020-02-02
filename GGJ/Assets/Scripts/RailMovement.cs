@@ -157,6 +157,7 @@ public class RailMovement : MonoBehaviour
         SceneManager.UnloadSceneAsync(DialogueManager.NomeFase);
         DialogueManager.canvas.gameObject.SetActive(true);
         DialogueTrigger.paciente.gameObject.SetActive(false);
+        DialogueManager.playermov.falando = true;
         //venceu o jogo.
     }
 

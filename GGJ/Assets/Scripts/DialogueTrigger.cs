@@ -35,10 +35,11 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")/* && falou == false && paciente.tag != "Finish"*/)
+        if (collision.gameObject.CompareTag("Player")&& !falou/* && falou == false && paciente.tag != "Finish"*/)
         {
             TriggerDialogue();
         }
+        
         /*else
         {
             TriggerDialogueFinal();

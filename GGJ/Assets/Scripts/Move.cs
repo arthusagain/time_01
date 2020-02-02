@@ -9,6 +9,7 @@ public class Move : MonoBehaviour
     private Vector2 move;
     private Rigidbody2D rb;
     public AudioSource passos;
+    public GameObject cxTexto;
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +25,11 @@ public class Move : MonoBehaviour
 
     private void Movimento()
     {
-        if(falando == false)
+        if(!falando)
         {
+            
             float movHon = Input.GetAxis("Horizontal");
-
+            
             Vector2 mov = new Vector2(movHon, 0);
 
             rb.velocity = mov * movSpeed;
@@ -38,7 +40,7 @@ public class Move : MonoBehaviour
             }
         }
         else
-        {           
+        {
             rb.velocity = new Vector2(0, 0) * movSpeed;
             passos.Stop();
         }

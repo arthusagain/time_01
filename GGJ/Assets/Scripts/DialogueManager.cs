@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> names;
     private GameObject player;
     public GameObject final;
-    private Move playermov;
+    public static Move playermov;
     public AudioSource passaDialogo;
 
     // Start is called before the first frame update
@@ -126,6 +126,7 @@ public class DialogueManager : MonoBehaviour
     {
         SceneManager.LoadScene(NomeFase, LoadSceneMode.Additive);
         canvas.gameObject.SetActive(false);
+        playermov.falando = false;
         activeName.text = post_name;
         dialogueText.text = s_fala;       
     }
@@ -147,9 +148,11 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        Debug.Log("Dialogo finalizado");
         playermov.falando = false;
         textBox.gameObject.SetActive(false);
         chooseButton.gameObject.SetActive(false);
         //funcao de fade pra proxima scene
     }
+
 }
