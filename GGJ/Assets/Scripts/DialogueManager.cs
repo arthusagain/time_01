@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> names;
     private GameObject player;
     private Move playermov;
+    public AudioSource passaDialogo;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class DialogueManager : MonoBehaviour
     {
         if(Input.GetKeyDown("space") && playermov.falando == true )
         {
+            passaDialogo.Play();
             DisplayNextSentence();
         }
         if(Input.GetKeyDown("space") && playermov.falando == true && (dialogueText.text == n_fala || dialogueText.text == s_fala))
@@ -53,6 +55,7 @@ public class DialogueManager : MonoBehaviour
         n_fala = dialogue.n_frase;
         post_name = dialogue.post_name;
         NomeFase = dialogue.MinigameScene;
+        passaDialogo.Play();
 
         sentences.Clear();
 
