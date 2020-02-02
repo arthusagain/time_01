@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity    guid: 3192ed518594ca142809db2493d086f7  - enabled: 1    path: Assets/Scenes/SampleScene.unity    path: Assets/Scenes/SampleScene.unity  - enabled: 1    path: Assets/Scenes/Gravida.unity
+    path: Assets/Scenes/Menu.unity
+    guid: 3192ed518594ca142809db2493d086f7
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Gravida.unity
     guid: 218db13b2628ddf48939359f12556958
+  - enabled: 1
+    path: Assets/Scenes/Adolescente.unity
+    guid: 8f68da541a2adf848a8d516c632f8f62
+  - enabled: 1
+    path: Assets/Scenes/Chata.unity
+    guid: c9680d76cf1cb1443af9fa5448fed477
+  - enabled: 1
+    path: Assets/Scenes/Bebado.unity
+    guid: c563c93bdc604e74d85f44a710c56f4b
   m_configObjects: {}
