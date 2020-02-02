@@ -155,6 +155,7 @@ public class RailMovement : MonoBehaviour
 
     public void FinishPuzzle()
     {
+        Time.timeScale = 1;
         GameManager.HP -= 25;
         //DialogueTrigger.paciente.GetComponent<SpriteRenderer>().sprite = DialogueTrigger.;
         SceneManager.UnloadSceneAsync(DialogueManager.NomeFase);
