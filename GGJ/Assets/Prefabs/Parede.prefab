@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471eaf22548020d45a53648dd111712b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipo: 4
+  tipo: 0
   orientacao: 2
 --- !u!61 &3902468474849080404
 BoxCollider2D:
@@ -120,5 +120,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0

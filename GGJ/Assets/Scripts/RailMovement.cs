@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class RailMovement : MonoBehaviour
 {
@@ -14,16 +15,14 @@ public class RailMovement : MonoBehaviour
         L
     }
     //J: velocidade de movimento
-    public float speed = 1;
+    public float speed = 2;
 
-    //J: segundos para executar rotação
-    //public float rDuration = 1;
+    //J: virus e jogador referenciam um ao outro para determinar colisão. minDist é a distancia considerada colisão
+    public GameObject rival;
+    public float minDist;
 
     //J: direção inicial do movimento
     public Direction dir;
-
-    //private float prevX;
-    //private float prevY;
 
     private Rigidbody2D body;
 
@@ -33,8 +32,6 @@ public class RailMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //prevX = transform.position.x;
-       // prevY = transform.position.y;
         body = GetComponent<Rigidbody2D>();
         body.gravityScale = 0;
     }
@@ -42,7 +39,11 @@ public class RailMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!over)
+        if (Vector2.Distance(transform.position,rival.transform.position)<=minDist)
+        {
+            GameOver();
+        }
+        else if (!over)
         {
             switch (dir)
             {
@@ -69,7 +70,6 @@ public class RailMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
-        Debug.Log("Colidiu");
         if (other.CompareTag("Virus"))
         {
             GameOver();
@@ -83,14 +83,11 @@ public class RailMovement : MonoBehaviour
 
                     if ((int)GT.orientacao == (int)dir)
                     {
-
-                        Debug.Log("Volta");
                         Rotate(180);
                     }
                     else
                     {
                         GameOver();
-                        Debug.Log("Morre");
                     }
                     break;
                 case GridTile.TileType.Linha:
@@ -112,7 +109,6 @@ public class RailMovement : MonoBehaviour
                     {
                         Rotate(270);
                     }
-                    Debug.Log("Fim da curva");
                     break;
                 case GridTile.TileType.Seta:
                     {
@@ -126,24 +122,23 @@ public class RailMovement : MonoBehaviour
                     }
                     else Rotate(180);
                     break;
+                case GridTile.TileType.Parede:
+                    GameOver();
+                    break;
                 default:
-                    //parede
                     GameOver();
                     break;            }
         }
     }
     private void Rotate(int degrees)
     {
-        Debug.Log($"Rodando {degrees} graus");
-        Debug.Log($"Direção inicial {dir}");
         int temp = (((int)dir+(degrees/90))%4);
-        //if (temp == 0) temp = 4;
         dir = (Direction)temp;
 
-        Debug.Log($"Direção final {dir}");
     }
     private void GameOver()
     {
+        Time.timeScale = 0;
         over = true;
         Destroy(this.gameObject);
         Debug.Log("Fim de jogo");
@@ -152,9 +147,12 @@ public class RailMovement : MonoBehaviour
 
     private void GameWin()
     {
+        Time.timeScale = 0;
+        //Debug.Log("Ganhou!");
         GameManager.HP -= 25;
         //DialogueTrigger.paciente.GetComponent<SpriteRenderer>().sprite = DialogueTrigger.;
         SceneManager.UnloadSceneAsync(DialogueManager.NomeFase);
         //venceu o jogo.
     }
+
 }
