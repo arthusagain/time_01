@@ -29,6 +29,8 @@ public class RailMovement : MonoBehaviour
     //J: se jogo acabar, para
     private bool over = false;
 
+
+    public GameObject defeatScreen, victoryScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -142,22 +144,29 @@ public class RailMovement : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0;
-        over = true;
-        Destroy(this.gameObject);
-        Debug.Log("Fim de jogo");
-        //pausar jogo, oferece botão para reiniciar cena.
+        defeatScreen.SetActive(true);
     }
 
     private void GameWin()
     {
-        //Debug.Log("Ganhou!");
+        Time.timeScale = 0;
+        victoryScreen.SetActive(true);
+    }
+
+    public void FinishPuzzle()
+    {
         GameManager.HP -= 25;
         //DialogueTrigger.paciente.GetComponent<SpriteRenderer>().sprite = DialogueTrigger.;
         SceneManager.UnloadSceneAsync(DialogueManager.NomeFase);
         DialogueManager.canvas.gameObject.SetActive(true);
         DialogueTrigger.paciente.gameObject.SetActive(false);
         DialogueManager.playermov.falando = true;
-        //venceu o jogo.
+    }
+
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
