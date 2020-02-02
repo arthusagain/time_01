@@ -38,20 +38,24 @@ public class GridTile : MonoBehaviour
             if(Input.GetKey(KeyCode.UpArrow))
             {
                 orientacao = Orientacao.S;
+                transform.eulerAngles = new Vector3(0, 0, 0);
             }
             else if(Input.GetKey(KeyCode.DownArrow))
             {
                 orientacao = Orientacao.N;
+                transform.eulerAngles = new Vector3(0, 0, 180);
 
             }
             else if(Input.GetKey(KeyCode.LeftArrow))
             {
                 orientacao = Orientacao.L;
+                transform.eulerAngles = new Vector3(0, 0, 90);
 
             }
             else if(Input.GetKey(KeyCode.RightArrow))
             {
                 orientacao = Orientacao.O;
+                transform.eulerAngles = new Vector3(0,0,270);
             }
         }
     }
