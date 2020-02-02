@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7078645397218580497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7078645397218580506}
+  - component: {fileID: 7078645397218580501}
+  - component: {fileID: 7078645397218580500}
+  - component: {fileID: 7078645397218580503}
+  - component: {fileID: 7078645397218580502}
+  m_Layer: 0
+  m_Name: Gravida
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7078645397218580506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078645397218580497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 1, z: 0}
+  m_LocalScale: {x: -1, y: 1.024, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &7078645397218580501
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078645397218580497}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 8b536218af03c954daf682c5d5d4b605, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.08, y: 3.61}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!70 &7078645397218580500
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078645397218580497}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 3.5, y: 3.61}
+  m_Direction: 0
+--- !u!50 &7078645397218580503
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078645397218580497}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &7078645397218580502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078645397218580497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbcc887da332da4f8fa238e61239321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    npc:
+    - Doc
+    - "Gr\xE1vida"
+    - "Gr\xE1vida"
+    - Doc
+    - "Gr\xE1vida"
+    - Doc
+    - Doc
+    - "Gr\xE1vida"
+    - "Gr\xE1vida"
+    - "Gr\xE1vida"
+    - "Gr\xE1vida"
+    sentences:
+    - "(Que absurdo...Ser\xE1 que o sangue de todas essas pessoas est\xE1 em minhas
+      m\xE3os?)"
+    - "Senhor, est\xE1 tudo bem?"
+    - "Parece t\xE3o...avoado."
+    - "Est\xE1 sim, \xE9 que, cada vez que entro em um abrigo novo, fantasmas voltam
+      para me assombrar."
+    - "Que horr\xEDvel, voc\xEA est\xE1 a quanto tempo nessa\u2026\r\nMiss\xE3o?\r"
+    - '...'
+    - Estou aqui para ajudar
+    - QUE? COMO?
+    - "N\xF3s nunca recebemos ajuda\u2026 desde quando \u201CO Evento\u201D aconteceu,
+      s\xF3 tentamos sobreviver dia ap\xF3s dia."
+    - "Parece que o governo virou as costas para n\xF3s."
+    - "Minha fam\xEDlia\u2026 *Sniff* *Sniff*"
+    barulhos:
+    - {fileID: 8300000, guid: 1519944364cf2e346bcc2ec25f471890, type: 3}
+    - {fileID: 8300000, guid: 3d88064c08c5fc04c877ca7dbd49cdec, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 8300000, guid: cf0146acc4d99824bb041630671cb04a, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    n_frase: "Tudo bem...voc\xEA deve precisar mais disso do que eu."
+    s_frase: "Muito obrigada, n\xE3o sabe o quanto nos ajudou."
+    post_name: "Gr\xE1vida"
+    MinigameScene: Gravida
+  falou: 0
