@@ -8,6 +8,7 @@ public class Move : MonoBehaviour
     public float movSpeed = 5.0f;
     private Vector2 move;
     private Rigidbody2D rb;
+    public AudioSource passos;
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +32,15 @@ public class Move : MonoBehaviour
 
             rb.velocity = mov * movSpeed;
 
+            if(movHon != 0 && passos.isPlaying == false)
+            {
+                passos.Play();
+            }
         }
         else
         {           
             rb.velocity = new Vector2(0, 0) * movSpeed;
+            passos.Stop();
         }
     }
 }
