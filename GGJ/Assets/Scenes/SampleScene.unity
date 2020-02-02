@@ -394,16 +394,35 @@ MonoBehaviour:
     - Doc
     - "Gr\xE1vida"
     - "Gr\xE1vida"
+    - Doc
+    - "Gr\xE1vida"
+    - Doc
+    - Doc
+    - "Gr\xE1vida"
+    - "Gr\xE1vida"
+    - "Gr\xE1vida"
+    - "Gr\xE1vida"
     sentences:
     - "(Que absurdo...Ser\xE1 que o sangue de todas essas pessoas est\xE1 em minhas
       m\xE3os?)"
     - "Senhor, est\xE1 tudo bem?"
     - "Parece t\xE3o...avoado."
+    - "Est\xE1 sim, \xE9 que, cada vez que entro em um abrigo novo, fantasmas voltam
+      para me assombrar."
+    - "Que horr\xEDvel, voc\xEA est\xE1 a quanto tempo nessa\u2026\r\nMiss\xE3o?\r"
+    - '...'
+    - Estou aqui para ajudar
+    - QUE? COMO?
+    - "N\xF3s nunca recebemos ajuda\u2026 desde quando \u201CO Evento\u201D aconteceu,
+      s\xF3 tentamos sobreviver dia ap\xF3s dia."
+    - "Parece que o governo virou as costas para n\xF3s."
+    - "Minha fam\xEDlia\u2026 *Sniff* *Sniff*"
     n_frase: "Tudo bem...voc\xEA deve precisar mais disso do que eu."
     s_frase: "Muito obrigada, n\xE3o sabe o quanto nos ajudou."
     post_name: "Gr\xE1vida"
     MinigameScene: Gravida
   falou: 0
+  curado: {fileID: 0}
 --- !u!50 &342465621
 Rigidbody2D:
   serializedVersion: 4
@@ -595,6 +614,7 @@ MonoBehaviour:
     post_name: 
     MinigameScene: 
   falou: 0
+  curado: {fileID: 0}
 --- !u!50 &595731435
 Rigidbody2D:
   serializedVersion: 4
@@ -1094,19 +1114,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     npc:
+    - Adolescente
+    - Adolescente
+    - Adolescente
     - Doc
-    - "Gr\xE1vida"
-    - "Gr\xE1vida"
+    - Adolescente
+    - Doc
+    - Doc
+    - Adolescente
+    - Doc
+    - Adolescente
     sentences:
-    - "(Que absurdo...Ser\xE1 que o sangue de todas essas pessoas est\xE1 em minhas
-      m\xE3os?)"
-    - "Senhor, est\xE1 tudo bem?"
-    - "Parece t\xE3o...avoado."
+    - "T\xE1 perdido ai?"
+    - "T\xE1 se achando todo com essa merda de roupa!"
+    - Veio aqui pra me sacanear?
+    - " (Ah, jovens\u2026 N\xE3o me lembro de ser t\xE3o amargo amargo assim. Mas
+      tamb\xE9m, passar por tudo isso nessa idade deve ser traum\xE1tico.\r\nS\xF3
+      deus sabe o que esse garoto passou)\r"
+    - "Ta me encarando por que? T\xE1 me tirando?"
+    - "Fica quieto e me escuta.\r\nEstou aqui para ajudar.\r"
+    - "Vou passando de abrigo em abrigo, distribuindo medicamentos para aqueles que
+      precisam. \r\nFa\xE7o isso para tentar conter essa\u2026 merda toda.\r"
+    - Medicamentos? De onde tu tirou isso?
+    - "Eu\u2026 Conhe\xE7o esse tipo de coisa, trabalhava com isso."
+    - "O QUE?! VOC\xCA \xC9 RESPONS\xC1VEL POR ESSA PORRA TODA?\r\nEU N\xC3O PRECISO
+      DA SUA AJUDA. N\xC3O ESTOU DOENTE\r\n*COF* *COF*\r\n"
     n_frase: "Tudo bem...voc\xEA deve precisar mais disso do que eu."
     s_frase: "Muito obrigada, n\xE3o sabe o quanto nos ajudou."
     post_name: "Gr\xE1vida"
-    MinigameScene: 
+    MinigameScene: Gravida
   falou: 0
+  curado: {fileID: 0}
 --- !u!50 &942185573
 Rigidbody2D:
   serializedVersion: 4
