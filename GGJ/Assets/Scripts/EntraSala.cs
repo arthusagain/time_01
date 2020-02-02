@@ -7,6 +7,7 @@ public class EntraSala : MonoBehaviour
     private bool porta;
     public Vector2 doorPosition;
     private GameObject player;
+    public AudioSource abrePorta;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class EntraSala : MonoBehaviour
 
     private void Entra()
     {
+        abrePorta.Play();
         player.transform.position = doorPosition;
         Debug.Log("entrou");
     }
